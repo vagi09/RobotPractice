@@ -1,0 +1,1 @@
+Loginurl = "https://demo.nopcommerce.com/"

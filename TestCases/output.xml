@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230207 23:38:12.102" rpa="false" schemaversion="3">
+<suite id="s1" name="Feature" source="C:\Users\manas\PycharmProjects\RobotPractice\TestCases\feature.robot">
+<test id="s1-t1" name="To get build version" line="24">
+<kw name="Get build version" library="stepDef">
+<doc>This keyword gets build version</doc>
+<kw name="Launch E-Com WebSite" library="KeyWords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${Loginurl}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230207 23:38:12.619" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20230207 23:38:12.619" endtime="20230207 23:38:19.351"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230207 23:38:19.351" endtime="20230207 23:38:19.483"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:21.484" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:19.483" endtime="20230207 23:38:21.484"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:12.619" endtime="20230207 23:38:21.484"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:12.619" endtime="20230207 23:38:21.484"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230207 23:38:12.619" endtime="20230207 23:38:21.484"/>
+</test>
+<test id="s1-t2" name="To Test Home Page Contents" line="28">
+<kw name="Test Home Page Elements" library="stepDef">
+<kw name="Home Page contents" library="KeyWords">
+<kw name="Create List" library="BuiltIn">
+<var>@{Radio}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:21.484" level="INFO">@{Radio} = [ ]</msg>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:21.484"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>4</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:21.515" level="INFO">${text} = Excellent</msg>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:21.515"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:21.515" level="INFO">Clicking element '//label[@for="pollanswers-1"]'.</msg>
+<status status="PASS" starttime="20230207 23:38:21.515" endtime="20230207 23:38:21.574"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:21.574" endtime="20230207 23:38:21.602"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:21.602" level="INFO">Clicking element 'xpath://button[@id='vote-poll-1']'.</msg>
+<status status="PASS" starttime="20230207 23:38:21.602" endtime="20230207 23:38:21.658"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:24.663" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:21.658" endtime="20230207 23:38:24.663"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert_Mes}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:24.663" endtime="20230207 23:38:24.700"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${message}</var>
+<arg>${alert_Mes}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:24.734" level="INFO">${message} = Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:24.700" endtime="20230207 23:38:24.734"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:24.734" level="INFO">Excellent</msg>
+<status status="PASS" starttime="20230207 23:38:24.734" endtime="20230207 23:38:24.734"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Radio}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:24.734" endtime="20230207 23:38:24.734"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:24.734" level="INFO">['Excellent']</msg>
+<status status="PASS" starttime="20230207 23:38:24.734" endtime="20230207 23:38:24.734"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:24.734"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:24.768" level="INFO">${text} = Good</msg>
+<status status="PASS" starttime="20230207 23:38:24.734" endtime="20230207 23:38:24.768"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:24.768" level="INFO">Clicking element '//label[@for="pollanswers-2"]'.</msg>
+<status status="PASS" starttime="20230207 23:38:24.768" endtime="20230207 23:38:24.827"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:24.827" endtime="20230207 23:38:24.850"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:24.850" level="INFO">Clicking element 'xpath://button[@id='vote-poll-1']'.</msg>
+<status status="PASS" starttime="20230207 23:38:24.850" endtime="20230207 23:38:24.889"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:27.889" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:24.889" endtime="20230207 23:38:27.889"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert_Mes}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:27.889" endtime="20230207 23:38:27.918"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${message}</var>
+<arg>${alert_Mes}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:27.942" level="INFO">${message} = Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:27.918" endtime="20230207 23:38:27.942"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:27.942" level="INFO">Good</msg>
+<status status="PASS" starttime="20230207 23:38:27.942" endtime="20230207 23:38:27.942"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Radio}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:27.942" endtime="20230207 23:38:27.942"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:27.942" level="INFO">['Excellent', 'Good']</msg>
+<status status="PASS" starttime="20230207 23:38:27.942" endtime="20230207 23:38:27.942"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:24.734" endtime="20230207 23:38:27.942"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:27.969" level="INFO">${text} = Poor</msg>
+<status status="PASS" starttime="20230207 23:38:27.942" endtime="20230207 23:38:27.969"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:27.969" level="INFO">Clicking element '//label[@for="pollanswers-3"]'.</msg>
+<status status="PASS" starttime="20230207 23:38:27.969" endtime="20230207 23:38:28.016"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:28.016" endtime="20230207 23:38:28.043"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:28.043" level="INFO">Clicking element 'xpath://button[@id='vote-poll-1']'.</msg>
+<status status="PASS" starttime="20230207 23:38:28.043" endtime="20230207 23:38:28.082"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:31.090" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:28.090" endtime="20230207 23:38:31.090"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert_Mes}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:31.090" endtime="20230207 23:38:31.114"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${message}</var>
+<arg>${alert_Mes}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:31.125" level="INFO">${message} = Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:31.114" endtime="20230207 23:38:31.125"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:31.125" level="INFO">Poor</msg>
+<status status="PASS" starttime="20230207 23:38:31.125" endtime="20230207 23:38:31.125"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Radio}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:31.125" endtime="20230207 23:38:31.125"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:31.125" level="INFO">['Excellent', 'Good', 'Poor']</msg>
+<status status="PASS" starttime="20230207 23:38:31.125" endtime="20230207 23:38:31.125"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:27.942" endtime="20230207 23:38:31.125"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${text}</var>
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:31.159" level="INFO">${text} = Very bad</msg>
+<status status="PASS" starttime="20230207 23:38:31.125" endtime="20230207 23:38:31.159"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//label[@for="pollanswers-${${i}+1}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:31.159" level="INFO">Clicking element '//label[@for="pollanswers-4"]'.</msg>
+<status status="PASS" starttime="20230207 23:38:31.159" endtime="20230207 23:38:31.219"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:31.219" endtime="20230207 23:38:31.242"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:31.242" level="INFO">Clicking element 'xpath://button[@id='vote-poll-1']'.</msg>
+<status status="PASS" starttime="20230207 23:38:31.242" endtime="20230207 23:38:31.290"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:34.290" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:31.290" endtime="20230207 23:38:34.290"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert_Mes}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:34.290" endtime="20230207 23:38:34.310"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${message}</var>
+<arg>${alert_Mes}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">${message} = Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:34.310" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">Very bad</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${Radio}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">['Excellent', 'Good', 'Poor', 'Very bad']</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:31.125" endtime="20230207 23:38:34.324"/>
+</iter>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:34.324"/>
+</for>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Radio}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">${Radio} = ['Excellent', 'Good', 'Poor', 'Very bad']</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}[0]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">Excellent</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}[1]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">Good</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}[2]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">Poor</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Radio}[3]</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:34.324" level="INFO">Very bad</msg>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.324"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${excellent_radio}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:34.324" endtime="20230207 23:38:34.360"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${excellent_radio}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:34.360" level="INFO">Clicking element 'xpath://label[text()='Excellent']'.</msg>
+<status status="PASS" starttime="20230207 23:38:34.360" endtime="20230207 23:38:34.408"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:34.409" endtime="20230207 23:38:34.433"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${vote}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:34.433" level="INFO">Clicking element 'xpath://button[@id='vote-poll-1']'.</msg>
+<status status="PASS" starttime="20230207 23:38:34.433" endtime="20230207 23:38:34.473"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${alert_Mes}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:34.473" endtime="20230207 23:38:34.497"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${message}</var>
+<arg>${alert_Mes}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:34.513" level="INFO">${message} = Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:34.497" endtime="20230207 23:38:34.513"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230207 23:38:36.513" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230207 23:38:34.513" endtime="20230207 23:38:36.513"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.513" level="INFO">Only registered users can vote.</msg>
+<status status="PASS" starttime="20230207 23:38:36.513" endtime="20230207 23:38:36.513"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${footer_service}</var>
+<arg>${Customer_Service}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.530" level="INFO">${footer_service} = 6</msg>
+<status status="PASS" starttime="20230207 23:38:36.513" endtime="20230207 23:38:36.530"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${footer_service}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.530" level="INFO">6</msg>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.530"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{footer_text}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:36.530" level="INFO">@{footer_text} = [ ]</msg>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.530"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{foo1}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:36.530" level="INFO">@{foo1} = [ ]</msg>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.530"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${footer_service}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.556" level="INFO">${foo_txt} = Search</msg>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.556"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.556" level="INFO">Search</msg>
+<status status="PASS" starttime="20230207 23:38:36.556" endtime="20230207 23:38:36.556"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.556" endtime="20230207 23:38:36.556"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.556"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.601" level="INFO">${foo_txt} = News</msg>
+<status status="PASS" starttime="20230207 23:38:36.556" endtime="20230207 23:38:36.601"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.601" level="INFO">News</msg>
+<status status="PASS" starttime="20230207 23:38:36.601" endtime="20230207 23:38:36.601"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.601" endtime="20230207 23:38:36.601"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.556" endtime="20230207 23:38:36.601"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.632" level="INFO">${foo_txt} = Blog</msg>
+<status status="PASS" starttime="20230207 23:38:36.601" endtime="20230207 23:38:36.632"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.632" level="INFO">Blog</msg>
+<status status="PASS" starttime="20230207 23:38:36.632" endtime="20230207 23:38:36.632"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.632" endtime="20230207 23:38:36.632"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.601" endtime="20230207 23:38:36.632"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.657" level="INFO">${foo_txt} = Recently viewed products</msg>
+<status status="PASS" starttime="20230207 23:38:36.632" endtime="20230207 23:38:36.657"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.665" level="INFO">Recently viewed products</msg>
+<status status="PASS" starttime="20230207 23:38:36.657" endtime="20230207 23:38:36.665"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.665" endtime="20230207 23:38:36.665"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.632" endtime="20230207 23:38:36.665"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.689" level="INFO">${foo_txt} = Compare products list</msg>
+<status status="PASS" starttime="20230207 23:38:36.665" endtime="20230207 23:38:36.689"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.689" level="INFO">Compare products list</msg>
+<status status="PASS" starttime="20230207 23:38:36.689" endtime="20230207 23:38:36.689"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.689" endtime="20230207 23:38:36.689"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.665" endtime="20230207 23:38:36.689"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo_txt}</var>
+<arg>${Customer_Service} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.720" level="INFO">${foo_txt} = New products</msg>
+<status status="PASS" starttime="20230207 23:38:36.689" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.720" level="INFO">New products</msg>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${footer_text}</arg>
+<arg>${foo_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.689" endtime="20230207 23:38:36.720"/>
+</iter>
+<status status="PASS" starttime="20230207 23:38:36.530" endtime="20230207 23:38:36.720"/>
+</for>
+<kw name="Append To List" library="Collections">
+<arg>${foo1}</arg>
+<arg>${footer_text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${footer_text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.720" level="INFO">['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products']</msg>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${foo1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:36.720" level="INFO">${foo1} = [['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products']]</msg>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${footer_text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:36.720" level="INFO">${footer_text} = ['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products']</msg>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.720"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${info_foo}</var>
+<arg>${Info_Ser}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.737" level="INFO">${info_foo} = 6</msg>
+<status status="PASS" starttime="20230207 23:38:36.720" endtime="20230207 23:38:36.737"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${info_foo}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.737" level="INFO">6</msg>
+<status status="PASS" starttime="20230207 23:38:36.737" endtime="20230207 23:38:36.737"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{info_footer}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:36.737" level="INFO">@{info_footer} = [ ]</msg>
+<status status="PASS" starttime="20230207 23:38:36.737" endtime="20230207 23:38:36.737"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${info_foo}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.773" level="INFO">${foo1_txt} = Sitemap</msg>
+<status status="PASS" starttime="20230207 23:38:36.737" endtime="20230207 23:38:36.773"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.773" level="INFO">Sitemap</msg>
+<status status="PASS" starttime="20230207 23:38:36.773" endtime="20230207 23:38:36.773"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.773" endtime="20230207 23:38:36.773"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.737" endtime="20230207 23:38:36.773"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.806" level="INFO">${foo1_txt} = Shipping &amp; returns</msg>
+<status status="PASS" starttime="20230207 23:38:36.773" endtime="20230207 23:38:36.806"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.806" level="INFO">Shipping &amp; returns</msg>
+<status status="PASS" starttime="20230207 23:38:36.806" endtime="20230207 23:38:36.806"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.806" endtime="20230207 23:38:36.806"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.773" endtime="20230207 23:38:36.806"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.846" level="INFO">${foo1_txt} = Privacy notice</msg>
+<status status="PASS" starttime="20230207 23:38:36.806" endtime="20230207 23:38:36.846"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.846" level="INFO">Privacy notice</msg>
+<status status="PASS" starttime="20230207 23:38:36.846" endtime="20230207 23:38:36.846"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.846" endtime="20230207 23:38:36.846"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.806" endtime="20230207 23:38:36.846"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.876" level="INFO">${foo1_txt} = Conditions of Use</msg>
+<status status="PASS" starttime="20230207 23:38:36.846" endtime="20230207 23:38:36.876"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.876" level="INFO">Conditions of Use</msg>
+<status status="PASS" starttime="20230207 23:38:36.876" endtime="20230207 23:38:36.876"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.876" endtime="20230207 23:38:36.876"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.846" endtime="20230207 23:38:36.876"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.908" level="INFO">${foo1_txt} = About us</msg>
+<status status="PASS" starttime="20230207 23:38:36.876" endtime="20230207 23:38:36.908"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.908" level="INFO">About us</msg>
+<status status="PASS" starttime="20230207 23:38:36.908" endtime="20230207 23:38:36.908"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.908" endtime="20230207 23:38:36.908"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.876" endtime="20230207 23:38:36.908"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo1_txt}</var>
+<arg>${Info_Ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">${foo1_txt} = Contact us</msg>
+<status status="PASS" starttime="20230207 23:38:36.908" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1_txt}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">Contact us</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${info_footer}</arg>
+<arg>${foo1_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.908" endtime="20230207 23:38:36.933"/>
+</iter>
+<status status="PASS" starttime="20230207 23:38:36.737" endtime="20230207 23:38:36.933"/>
+</for>
+<kw name="Append To List" library="Collections">
+<arg>${foo1}</arg>
+<arg>${info_footer}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${info_footer}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">['Sitemap', 'Shipping &amp; returns', 'Privacy notice', 'Conditions of Use', 'About us', 'Contact us']</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${foo1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">${foo1} = [['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products'], ['Sitemap', 'Shipping &amp; returns', 'Privacy notice', 'Conditions of Use', 'About us', 'Contact us']]</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">[['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products'], ['Sitemap', 'Shipping &amp; returns', 'Privacy notice', 'Conditions of Use', 'About us', 'Contact us']]</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${foo1}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">${foo1} = [['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products'], ['Sitemap', 'Shipping &amp; returns', 'Privacy notice', 'Conditions of Use', 'About us', 'Contact us']]</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{myAcc_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:36.933" level="INFO">@{myAcc_list} = [ ]</msg>
+<status status="PASS" starttime="20230207 23:38:36.933" endtime="20230207 23:38:36.933"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${Myacc_cnt}</var>
+<arg>${MyAcc_ser}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.953" level="INFO">${Myacc_cnt} = 6</msg>
+<status status="PASS" starttime="20230207 23:38:36.942" endtime="20230207 23:38:36.953"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>${Myacc_cnt}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:36.984" level="INFO">${foo3_txt} = My account</msg>
+<status status="PASS" starttime="20230207 23:38:36.953" endtime="20230207 23:38:36.984"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:36.984" endtime="20230207 23:38:36.984"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.953" endtime="20230207 23:38:36.984"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.014" level="INFO">${foo3_txt} = Orders</msg>
+<status status="PASS" starttime="20230207 23:38:36.984" endtime="20230207 23:38:37.014"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.014" endtime="20230207 23:38:37.014"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:36.984" endtime="20230207 23:38:37.014"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.047" level="INFO">${foo3_txt} = Addresses</msg>
+<status status="PASS" starttime="20230207 23:38:37.014" endtime="20230207 23:38:37.047"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.047" endtime="20230207 23:38:37.047"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.014" endtime="20230207 23:38:37.047"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.073" level="INFO">${foo3_txt} = Shopping cart</msg>
+<status status="PASS" starttime="20230207 23:38:37.047" endtime="20230207 23:38:37.073"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.073" endtime="20230207 23:38:37.073"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.047" endtime="20230207 23:38:37.073"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.111" level="INFO">${foo3_txt} = Wishlist</msg>
+<status status="PASS" starttime="20230207 23:38:37.081" endtime="20230207 23:38:37.111"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.111" endtime="20230207 23:38:37.112"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.073" endtime="20230207 23:38:37.112"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${foo3_txt}</var>
+<arg>${MyAcc_ser} [${${i}+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.138" level="INFO">${foo3_txt} = Apply for vendor account</msg>
+<status status="PASS" starttime="20230207 23:38:37.112" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${myAcc_list}</arg>
+<arg>${foo3_txt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.112" endtime="20230207 23:38:37.138"/>
+</iter>
+<status status="PASS" starttime="20230207 23:38:36.953" endtime="20230207 23:38:37.138"/>
+</for>
+<kw name="Log" library="BuiltIn">
+<arg>${myAcc_list}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:37.138" level="INFO">['My account', 'Orders', 'Addresses', 'Shopping cart', 'Wishlist', 'Apply for vendor account']</msg>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${foo1}</arg>
+<arg>${myAcc_list}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${foo1}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:37.138" level="INFO">[['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products'], ['Sitemap', 'Shipping &amp; returns', 'Privacy notice', 'Conditions of Use', 'About us', 'Contact us'], ['My account', 'Orders', 'Addresses', 'Shopping cart', 'Wishlist', 'Apply for vendor account']]</msg>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${myAcc_list}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230207 23:38:37.138" level="INFO">${myAcc_list} = ['My account', 'Orders', 'Addresses', 'Shopping cart', 'Wishlist', 'Apply for vendor account']</msg>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Generate Excel File" library="KeyWords">
+<kw name="Create List" library="BuiltIn">
+<var>@{columns}</var>
+<arg>Information</arg>
+<arg>Customer service</arg>
+<arg>My account</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230207 23:38:37.138" level="INFO">@{columns} = [ Information | Customer service | My account ]</msg>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.138"/>
+</kw>
+<kw name="Add To Excel" library="extraKeyWords">
+<arg>Foote3.xlsx</arg>
+<arg>footer_list</arg>
+<arg>${foo1}</arg>
+<arg>${columns}</arg>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.167"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.138" endtime="20230207 23:38:37.167"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:37.167"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>home page test===\n${Radio}\n===\n${footer_text}\n</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:37.167" level="INFO">home page test===
+['Excellent', 'Good', 'Poor', 'Very bad']
+===
+['Search', 'News', 'Blog', 'Recently viewed products', 'Compare products list', 'New products']
+</msg>
+<status status="PASS" starttime="20230207 23:38:37.167" endtime="20230207 23:38:37.167"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${foo1}[0]</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230207 23:38:37.167" level="INFO">List length is 6 and it contains following items:
+0: Search
+1: News
+2: Blog
+3: Recently viewed products
+4: Compare products list
+5: New products</msg>
+<status status="PASS" starttime="20230207 23:38:37.167" endtime="20230207 23:38:37.167"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${foo1}[1]</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230207 23:38:37.167" level="INFO">List length is 6 and it contains following items:
+0: Sitemap
+1: Shipping &amp; returns
+2: Privacy notice
+3: Conditions of Use
+4: About us
+5: Contact us</msg>
+<status status="PASS" starttime="20230207 23:38:37.167" endtime="20230207 23:38:37.167"/>
+</kw>
+<kw name="Log List" library="Collections">
+<arg>${foo1}[2]</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<msg timestamp="20230207 23:38:37.167" level="INFO">List length is 6 and it contains following items:
+0: My account
+1: Orders
+2: Addresses
+3: Shopping cart
+4: Wishlist
+5: Apply for vendor account</msg>
+<status status="PASS" starttime="20230207 23:38:37.167" endtime="20230207 23:38:37.167"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230207 23:38:21.484" endtime="20230207 23:38:37.172"/>
+</test>
+<test id="s1-t3" name="To Test Login Page" line="35">
+<kw name="Login Page Test" library="stepDef">
+<kw name="Login link Test" library="KeyWords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:37.173" endtime="20230207 23:38:37.198"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:37.206" level="INFO">Clicking element 'xpath://a[normalize-space()='Log in']'.</msg>
+<status status="PASS" starttime="20230207 23:38:37.198" endtime="20230207 23:38:37.759"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230207 23:38:37.917" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230207 23:38:37.759" endtime="20230207 23:38:37.917"/>
+</kw>
+<kw name="Capture Element Screenshot" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230207 23:38:38.033" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-element-screenshot-8.png"&gt;&lt;img src="selenium-element-screenshot-8.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230207 23:38:37.917" endtime="20230207 23:38:38.034"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230207 23:38:38.058" level="INFO">Element 'xpath://a[normalize-space()='Log in']' is displayed.</msg>
+<status status="PASS" starttime="20230207 23:38:38.034" endtime="20230207 23:38:38.058"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${get_text}</var>
+<arg>${Login_Xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:38.082" level="INFO">${get_text} = Log in</msg>
+<status status="PASS" starttime="20230207 23:38:38.059" endtime="20230207 23:38:38.082"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${get_text_log}</arg>
+<arg>Capture title: ${get_text}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20230207 23:38:38.082" level="INFO">${get_text_log} = Capture title: Log in</msg>
+<status status="PASS" starttime="20230207 23:38:38.082" endtime="20230207 23:38:38.082"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${get_text_log}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:38.090" level="INFO">Capture title: Log in</msg>
+<status status="PASS" starttime="20230207 23:38:38.082" endtime="20230207 23:38:38.090"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.173" endtime="20230207 23:38:38.090"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:37.173" endtime="20230207 23:38:38.090"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="PASS" starttime="20230207 23:38:37.173" endtime="20230207 23:38:38.091"/>
+</test>
+<test id="s1-t4" name="To Verify LogIn Credentials" line="38">
+<kw name="Test Login Credentials" library="stepDef">
+<kw name="Click On Login Link" library="KeyWords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230207 23:38:38.092" endtime="20230207 23:38:38.112"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Login_Xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:38.112" level="INFO">Clicking element 'xpath://a[normalize-space()='Log in']'.</msg>
+<status status="PASS" starttime="20230207 23:38:38.112" endtime="20230207 23:38:38.625"/>
+</kw>
+<status status="PASS" starttime="20230207 23:38:38.092" endtime="20230207 23:38:38.625"/>
+</kw>
+<kw name="Read Login Data from Excel" library="KeyWords">
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${email}</var>
+<arg>${sheet_name}</arg>
+<arg>A1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230207 23:38:38.625" level="INFO">${email} = None</msg>
+<msg timestamp="20230207 23:38:38.625" level="FAIL">ValueError: Argument 'row_num' got value 'Sheet1' that cannot be converted to integer.</msg>
+<status status="FAIL" starttime="20230207 23:38:38.625" endtime="20230207 23:38:38.650"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${password}</var>
+<arg>${sheet_name}</arg>
+<arg>B1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230207 23:38:38.650" level="INFO">${password} = None</msg>
+<msg timestamp="20230207 23:38:38.650" level="FAIL">ValueError: Argument 'row_num' got value 'Sheet1' that cannot be converted to integer.</msg>
+<status status="FAIL" starttime="20230207 23:38:38.650" endtime="20230207 23:38:38.650"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Email_id}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:38.650" level="INFO">Typing text 'None' into text field 'xpath://input[@id='Email']'.</msg>
+<status status="PASS" starttime="20230207 23:38:38.650" endtime="20230207 23:38:38.773"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_txt}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:38.773" level="INFO">Typing text 'None' into text field 'xpath://input[@id='Password']'.</msg>
+<status status="PASS" starttime="20230207 23:38:38.773" endtime="20230207 23:38:38.885"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${Login_btn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:38.885" level="INFO">Clicking button 'css:.button-1.login-button'.</msg>
+<status status="PASS" starttime="20230207 23:38:38.885" endtime="20230207 23:38:38.998"/>
+</kw>
+<status status="FAIL" starttime="20230207 23:38:38.625" endtime="20230207 23:38:38.998"/>
+</kw>
+<kw name="validate Login Error Msg" library="KeyWords">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Login_Error_msg}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230207 23:38:44.290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230207 23:38:44.290" level="FAIL">Element 'xpath://div[@class='message-error validation-summary-errors']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20230207 23:38:38.998" endtime="20230207 23:38:44.290"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Login_Message}</var>
+<arg>${Login_Error_msg}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230207 23:38:44.439" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230207 23:38:44.439" level="INFO">${Login_Message} = None</msg>
+<msg timestamp="20230207 23:38:44.439" level="FAIL">Element with locator 'xpath://div[@class='message-error validation-summary-errors']' not found.</msg>
+<status status="FAIL" starttime="20230207 23:38:44.290" endtime="20230207 23:38:44.442"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Login Error Message: ${Login_Message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230207 23:38:44.442" level="INFO">Login Error Message: None</msg>
+<status status="PASS" starttime="20230207 23:38:44.442" endtime="20230207 23:38:44.442"/>
+</kw>
+<status status="FAIL" starttime="20230207 23:38:38.998" endtime="20230207 23:38:44.442"/>
+</kw>
+<status status="FAIL" starttime="20230207 23:38:38.092" endtime="20230207 23:38:44.442"/>
+</kw>
+<tag>robot:recursive-continue-on-failure</tag>
+<status status="FAIL" starttime="20230207 23:38:38.092" endtime="20230207 23:38:44.446">Several failures occurred:
+
+1) ValueError: Argument 'row_num' got value 'Sheet1' that cannot be converted to integer.
+
+2) ValueError: Argument 'row_num' got value 'Sheet1' that cannot be converted to integer.
+
+3) Element 'xpath://div[@class='message-error validation-summary-errors']' not visible after 5 seconds.
+
+4) Element with locator 'xpath://div[@class='message-error validation-summary-errors']' not found.</status>
+</test>
+<doc>This is first program in robot framework
+E-Commerece Website</doc>
+<status status="FAIL" starttime="20230207 23:38:12.113" endtime="20230207 23:38:44.446"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Feature">Feature</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
