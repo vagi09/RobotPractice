@@ -25,7 +25,7 @@ Test Login Credentials
      Enter Email Id
      Enter Password
      Click On Login Button
-    Read Login Data from Excel
+#    Read Login Data from Excel
     validate Login Error Msg
 
 
