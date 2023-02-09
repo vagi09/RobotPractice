@@ -22,9 +22,9 @@ Login Page Test
 
 Test Login Credentials
      Click On Login Link
-#     Enter Email Id
-#     Enter Password
-#     Click On Login Button
+     Enter Email Id
+     Enter Password
+     Click On Login Button
     Read Login Data from Excel
     validate Login Error Msg
 

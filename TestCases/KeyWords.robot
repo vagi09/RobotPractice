@@ -165,18 +165,3 @@ validate Login Error Msg
    ${Login_Message}=  Get Text      ${Login_Error_msg}
    Log    Login Error Message: ${Login_Message}
 
-Read Login Data from Excel
-
-
-
-   ${data}     Get Row    ${sheet_name}    row=1
-    ${email}    Set Variable    ${data}[0]
-    ${password}    Set Variable    ${data}[1]
-
-    # Enter email and password into the text input fields
-    Input Text    ${Email_id}   ${email}
-    Input Text    ${password_txt}    ${password}
-
-    # Submit the form
-    Click Button    ${Login_btn}
-
